@@ -1,20 +1,34 @@
+const heroHeadline = document.getElementById("heroHeadline");
 const ctaButton = document.getElementById("ctaButton");
 const testimonialContainer = document.getElementById("testimonialContainer");
 
-const ctaVariants = [
-  "Schedule Demo",
-  "See how Erina flags NCUA risks",
-  "Get your NCUA readiness assessment",
+const messagingVariants = [
+  {
+    headline: "Be Ready Before Your Next NCUA Examination",
+    cta: "Schedule Demo",
+    logLabel: "Variant A – Compliance Messaging",
+  },
+  {
+    headline: "Detect Loan Portfolio Risk Before It Becomes a Loss",
+    cta: "See How Erina Flags NCUA Risk Signals",
+    logLabel: "Variant B – Risk Detection Messaging",
+  },
+  {
+    headline: "Automate CECL Workflows and Reduce Manual Risk Reviews",
+    cta: "Get Your NCUA Readiness Assessment",
+    logLabel: "Variant C – Efficiency Messaging",
+  },
 ];
 
-function applyCtaVariant() {
-  if (!ctaButton) return;
+function applyMessagingVariant() {
+  if (!heroHeadline || !ctaButton) return;
 
-  const randomIndex = Math.floor(Math.random() * ctaVariants.length);
-  const selectedVariant = ctaVariants[randomIndex];
+  const randomIndex = Math.floor(Math.random() * messagingVariants.length);
+  const selectedVariant = messagingVariants[randomIndex];
 
-  ctaButton.textContent = selectedVariant;
-  console.log("CTA Variant Shown:", selectedVariant);
+  heroHeadline.textContent = selectedVariant.headline;
+  ctaButton.textContent = selectedVariant.cta;
+  console.log(selectedVariant.logLabel);
 }
 
 function trackPrimaryCtaClick() {
@@ -51,6 +65,6 @@ async function loadTestimonials() {
   }
 }
 
-applyCtaVariant();
+applyMessagingVariant();
 trackPrimaryCtaClick();
 loadTestimonials();
