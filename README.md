@@ -1,12 +1,12 @@
 # Credit Union Landing Page
 
-Minimal landing page for credit-union outreach and A/B testing.
+Static landing page for credit-union outreach with a client-side A/B messaging experiment.
 
 ## Run Locally
 
 1. Open a terminal and go to the project folder:
 ```bash
-cd cu-landing-page
+cd "/home/tclark/Data Science/RIskInMind/LandingPage"
 ```
 
 2. Start a local web server:
@@ -18,6 +18,25 @@ python -m http.server
 ```text
 http://localhost:8000
 ```
+
+## A/B Messaging Experiment
+
+On each page load, `script.js` randomly selects one of three variants and updates:
+- Hero headline (`#heroHeadline`)
+- Primary CTA button text (`#ctaButton`)
+
+Variants:
+- Variant A (Compliance): `Be Ready Before Your Next NCUA Examination` / `Schedule Demo`
+- Variant B (Risk Detection): `Detect Loan Portfolio Risk Before It Becomes a Loss` / `See How Erina Flags NCUA Risk Signals`
+- Variant C (Efficiency): `Automate CECL Workflows and Reduce Manual Risk Reviews` / `Get Your NCUA Readiness Assessment`
+
+The selected variant is logged in the browser console (example: `Variant A – Compliance Messaging`).
+
+## Deployment
+
+- GitHub Pages compatible (static HTML/CSS/JS only)
+- No backend required
+- No external JavaScript dependencies required
 
 ## Stop the Server
 
