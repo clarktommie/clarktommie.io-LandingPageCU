@@ -39,6 +39,19 @@ body {
   max-width: 780px;
 }
 
+.brand-link {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand-link:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
 h1,
 h2 {
   margin-top: 0;
