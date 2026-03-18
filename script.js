@@ -1,7 +1,5 @@
 const testimonialContainer = document.getElementById("testimonialContainer");
 const testimonialStatus = document.getElementById("testimonialStatus");
-const testimonialPrev = document.getElementById("testimonialPrev");
-const testimonialNext = document.getElementById("testimonialNext");
 const heroHeadline = document.getElementById("heroHeadline");
 const ctaButton = document.getElementById("ctaButton");
 
@@ -16,6 +14,7 @@ const demoFormStatus = document.getElementById("demoFormStatus");
 
 let carouselItems = [];
 let carouselIndex = 0;
+let rotationTimer = null;
 
 const messagingVariants = [
   {
@@ -61,12 +60,9 @@ function renderCarouselItem() {
 
   if (!carouselItems.length) {
     testimonialContainer.innerHTML =
-      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are actively collecting feedback with credit union partners.</p></article>';
+      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit union teams and welcome additional feedback.</p></article>';
     testimonialStatus.textContent =
-      "In progress: add verified credit union entries to testimonials.json as they are approved.";
-
-    if (testimonialPrev) testimonialPrev.disabled = true;
-    if (testimonialNext) testimonialNext.disabled = true;
+      "In progress: more peer outcomes will be added as credit union partners approve publication.";
     return;
   }
 
@@ -79,19 +75,21 @@ function renderCarouselItem() {
   `;
   testimonialContainer.appendChild(card);
 
-  testimonialStatus.textContent = `Result ${carouselIndex + 1} of ${carouselItems.length}`;
-
-  const hasMany = carouselItems.length > 1;
-  if (testimonialPrev) testimonialPrev.disabled = !hasMany;
-  if (testimonialNext) testimonialNext.disabled = !hasMany;
+  testimonialStatus.textContent = `Peer result ${carouselIndex + 1} of ${carouselItems.length}`;
 }
 
-function stepCarousel(direction) {
-  if (!carouselItems.length) return;
+function startTestimonialsRotation() {
+  if (rotationTimer) {
+    clearInterval(rotationTimer);
+    rotationTimer = null;
+  }
 
-  const total = carouselItems.length;
-  carouselIndex = (carouselIndex + direction + total) % total;
-  renderCarouselItem();
+  if (carouselItems.length <= 1) return;
+
+  rotationTimer = setInterval(() => {
+    carouselIndex = (carouselIndex + 1) % carouselItems.length;
+    renderCarouselItem();
+  }, 7000);
 }
 
 async function loadTestimonials() {
@@ -122,15 +120,14 @@ async function loadTestimonials() {
 
     carouselIndex = 0;
     renderCarouselItem();
+    startTestimonialsRotation();
   } catch (error) {
     if (!testimonialContainer || !testimonialStatus) return;
 
     testimonialContainer.innerHTML =
-      '<article class="testimonial-card"><p class="testimonial-quote">Unable to load peer results.</p></article>';
-    testimonialStatus.textContent = "Check testimonials.json path and JSON format.";
-
-    if (testimonialPrev) testimonialPrev.disabled = true;
-    if (testimonialNext) testimonialNext.disabled = true;
+      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit union teams and welcome additional feedback.</p></article>';
+    testimonialStatus.textContent =
+      "In progress: peer outcomes will appear here as they are approved for sharing.";
     console.error(error);
   }
 }
@@ -177,14 +174,6 @@ function setupDemoForm() {
     demoFormStatus.textContent =
       "Request captured locally. Use the demo link below to open the RiskInMind demo page in a new tab.";
   });
-}
-
-if (testimonialPrev) {
-  testimonialPrev.addEventListener("click", () => stepCarousel(-1));
-}
-
-if (testimonialNext) {
-  testimonialNext.addEventListener("click", () => stepCarousel(1));
 }
 
 setupCalculator();

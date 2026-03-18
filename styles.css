@@ -140,12 +140,6 @@ p {
   background: #eff5ff;
 }
 
-.carousel-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
 .section-kicker {
   margin: 0 0 0.4rem;
   color: #1b3357;
@@ -212,10 +206,7 @@ select {
 }
 
 .carousel-shell {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 1rem;
-  align-items: center;
+  display: block;
 }
 
 .testimonial-carousel {
@@ -283,11 +274,6 @@ select {
   }
 
   .carousel-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .carousel-button {
-    width: 100%;
-    margin-top: 0;
+    display: block;
   }
 }
