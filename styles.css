@@ -90,7 +90,11 @@ p {
   color: var(--muted);
 }
 
-.btn-primary {
+.btn-primary,
+.carousel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.2rem;
   border: none;
   border-radius: 0.6rem;
@@ -101,25 +105,31 @@ p {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.carousel-button:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
 }
 
-.stats-grid,
-.testimonial-grid {
-  display: grid;
-  gap: 1rem;
+.carousel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .stats-grid {
+  display: grid;
+  gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .stat-card,
-.testimonial-card {
+.testimonial-card,
+.calculator-content,
+.schedule-demo-content {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 0.8rem;
@@ -139,8 +149,50 @@ p {
   color: var(--muted);
 }
 
-.testimonial-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.calculator-form,
+.demo-form {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.calculator-form label,
+.demo-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: #253c61;
+  font-weight: 600;
+}
+
+input,
+select {
+  border: 1px solid #b9caea;
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.7rem;
+  font: inherit;
+}
+
+.calculator-results,
+.demo-status,
+.testimonial-status {
+  margin-top: 0.8rem;
+  min-height: 1.3rem;
+}
+
+.carousel-shell {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.testimonial-carousel {
+  min-height: 190px;
+  display: grid;
+}
+
+.testimonial-card {
+  margin: 0;
 }
 
 .testimonial-quote {
@@ -149,28 +201,10 @@ p {
   margin: 0 0 0.8rem;
 }
 
-.testimonial-stars {
-  margin: 0 0 0.6rem;
-  color: #f4b400;
-  font-size: 1.1rem;
-  letter-spacing: 0.08rem;
-  line-height: 1;
-}
-
 .testimonial-meta {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
-}
-
-.final-cta {
-  text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 5rem;
-}
-
-.final-cta-content {
-  max-width: 760px;
 }
 
 .site-footer {
@@ -180,7 +214,7 @@ p {
 }
 
 .site-footer p {
-  margin: 0;
+  margin: 0.4rem 0;
 }
 
 .site-footer a {
@@ -195,8 +229,7 @@ p {
 }
 
 @media (max-width: 900px) {
-  .stats-grid,
-  .testimonial-grid {
+  .stats-grid {
     grid-template-columns: 1fr;
   }
 
@@ -215,5 +248,14 @@ p {
 
   .hero-credibility {
     margin-bottom: 0.6rem;
+  }
+
+  .carousel-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-button {
+    width: 100%;
+    margin-top: 0;
   }
 }

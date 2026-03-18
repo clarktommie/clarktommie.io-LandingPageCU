@@ -1,6 +1,6 @@
 # Credit Union Landing Page
 
-Static landing page for credit-union outreach with a client-side A/B messaging experiment.
+Static landing pages for credit union outreach, including a dedicated `/credit-unions` path.
 
 ## Run Locally
 
@@ -14,40 +14,40 @@ cd "/home/tclark/Data Science/RIskInMind/LandingPage"
 python -m http.server
 ```
 
-3. Open the page in your browser:
+3. Open either page in your browser:
 ```text
-http://localhost:8000
+http://localhost:8000/
+http://localhost:8000/credit-unions/
 ```
 
-## A/B Messaging Experiment
+## Implemented Sections
 
-On each page load, `script.js` randomly selects one of three variants and updates:
-- Hero headline (`#heroHeadline`)
-- Primary CTA button text (`#ctaButton`)
+- Hero messaging: `AI-Powered Compliance for Credit Unions`
+- Credit union stats section with provided claims
+- CECL payoff calculator using only user-entered inputs
+- Dynamic testimonial carousel fed by `testimonials.json`
+- Streamlined `Schedule Demo` form for regulatory users
 
-Variants:
-- Variant A (Compliance): `Be Ready Before Your Next NCUA Examination` / `Schedule Demo`
-- Variant B (Risk Detection): `Detect Loan Portfolio Risk Before It Becomes a Loss` / `See How Erina Flags NCUA Risk Signals`
-- Variant C (Efficiency): `Automate CECL Workflows and Reduce Manual Risk Reviews` / `Get Your NCUA Readiness Assessment`
+## Testimonials Data
 
-The selected variant is logged in the browser console (example: `Variant A – Compliance Messaging`).
+`testimonials.json` is intentionally empty until verified CU peer results are available.
+
+Expected item format:
+
+```json
+[
+  {
+    "quote": "...",
+    "role": "...",
+    "institution": "..."
+  }
+]
+```
+
+When empty, the page shows a no-data message instead of fabricated results.
 
 ## Deployment
 
 - GitHub Pages compatible (static HTML/CSS/JS only)
 - No backend required
 - No external JavaScript dependencies required
-
-## Stop the Server
-
-1. In the same terminal where the server is running, press:
-```text
-Ctrl + C
-```
-
-## Project Files
-
-- `index.html`
-- `styles.css`
-- `script.js`
-- `testimonials.json`
