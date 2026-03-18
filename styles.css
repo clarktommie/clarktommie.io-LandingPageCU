@@ -91,6 +91,7 @@ p {
 }
 
 .btn-primary,
+.btn-secondary,
 .carousel-button {
   display: inline-flex;
   align-items: center;
@@ -109,15 +110,46 @@ p {
 }
 
 .btn-primary:hover,
+.btn-secondary:hover,
 .carousel-button:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #dbe7ff;
+  color: #17345a;
+}
+
+.btn-secondary:hover {
+  color: #ffffff;
+}
+
+.btn-form-action {
+  border: 1px solid #b9caea;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  color: #17345a;
+  padding: 0.85rem 1.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-form-action:hover {
+  background: #eff5ff;
 }
 
 .carousel-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+}
+
+.section-kicker {
+  margin: 0 0 0.4rem;
+  color: #1b3357;
+  font-weight: 600;
 }
 
 .stats-grid {

@@ -61,9 +61,9 @@ function renderCarouselItem() {
 
   if (!carouselItems.length) {
     testimonialContainer.innerHTML =
-      '<article class="testimonial-card"><p class="testimonial-quote">No verified credit union peer results are published yet.</p></article>';
+      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are actively collecting feedback with credit union partners.</p></article>';
     testimonialStatus.textContent =
-      "Add verified CU entries to testimonials.json to enable carousel rotation.";
+      "In progress: add verified credit union entries to testimonials.json as they are approved.";
 
     if (testimonialPrev) testimonialPrev.disabled = true;
     if (testimonialNext) testimonialNext.disabled = true;
@@ -175,7 +175,7 @@ function setupDemoForm() {
   scheduleDemoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     demoFormStatus.textContent =
-      "Demo request captured locally. Connect this form to your CRM or scheduling endpoint for live routing.";
+      "Request captured locally. Use the demo link below to open the RiskInMind demo page in a new tab.";
   });
 }
 
