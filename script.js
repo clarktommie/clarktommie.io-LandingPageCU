@@ -34,12 +34,27 @@ const messagingVariants = [
 function applyMessagingVariant() {
   if (!heroHeadline || !ctaButton) return;
 
-  const randomIndex = Math.floor(Math.random() * messagingVariants.length);
-  const selectedVariant = messagingVariants[randomIndex];
+  const storedVariant = localStorage.getItem("ab_variant");
+  let variantIndex = Number.parseInt(storedVariant, 10);
+
+  if (!Number.isInteger(variantIndex) || variantIndex < 0 || variantIndex >= messagingVariants.length) {
+    variantIndex = Math.floor(Math.random() * messagingVariants.length);
+    localStorage.setItem("ab_variant", String(variantIndex));
+  }
+
+  const selectedVariant = messagingVariants[variantIndex];
 
   heroHeadline.textContent = selectedVariant.headline;
   ctaButton.textContent = selectedVariant.cta;
-  console.log(selectedVariant.logLabel);
+  console.log("Variant:", variantIndex, "-", selectedVariant.logLabel);
+}
+
+function setupCtaTracking() {
+  if (!ctaButton) return;
+
+  ctaButton.addEventListener("click", () => {
+    console.log("CTA Clicked - Variant:", localStorage.getItem("ab_variant"));
+  });
 }
 
 function formatCurrency(value) {
@@ -166,4 +181,5 @@ function setupCalculator() {
 
 setupCalculator();
 applyMessagingVariant();
+setupCtaTracking();
 loadTestimonials();
