@@ -66,16 +66,19 @@
           <h2>CECL Payoff Calculator</h2>
           <p class="section-kicker">Estimate your potential time and cost savings.</p>
           <p>
-            Enter your baseline metrics. Results use only your inputs.
+            Enter your baseline metrics. We annualize your monthly manual CECL effort, apply your
+            expected reduction in manual prep, and convert the saved hours into labor savings.
+            The project brief cited a 40% reduction in manual data prep, so that is the default
+            assumption.
           </p>
           <form id="ceclCalculatorForm" class="calculator-form">
             <label>
               Manual CECL prep hours per month
-              <input id="monthlyHours" type="number" min="0" step="0.1" required />
+              <input id="monthlyHours" type="number" min="0" step="0.1" placeholder="20" required />
             </label>
             <label>
               Analyst blended hourly cost (USD)
-              <input id="hourlyCost" type="number" min="0" step="0.01" required />
+              <input id="hourlyCost" type="number" min="0" step="0.01" placeholder="55" required />
             </label>
             <label>
               Reduction in manual prep (%)
@@ -85,6 +88,7 @@
                 min="0"
                 max="100"
                 step="0.1"
+                value="40"
                 required
               />
             </label>
