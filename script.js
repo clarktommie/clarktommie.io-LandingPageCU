@@ -157,18 +157,11 @@ function setupCalculator() {
     }
 
     const annualManualHours = monthlyHours * 12;
-    const annualBaselineLaborCost = annualManualHours * hourlyCost;
     const annualHoursSaved = annualManualHours * (reductionPercent / 100);
-    const projectedAnnualManualHours = annualManualHours - annualHoursSaved;
-    const projectedAnnualLaborCost = projectedAnnualManualHours * hourlyCost;
-    const annualCostSaved = annualBaselineLaborCost - projectedAnnualLaborCost;
+    const annualCostSaved = annualHoursSaved * hourlyCost;
 
     calculatorResults.innerHTML = `
-      <p><strong>Baseline annual manual CECL hours:</strong> ${annualManualHours.toFixed(1)} hours</p>
-      <p><strong>Projected annual manual CECL hours after reduction:</strong> ${projectedAnnualManualHours.toFixed(1)} hours</p>
       <p><strong>Estimated annual hours saved:</strong> ${annualHoursSaved.toFixed(1)} hours</p>
-      <p><strong>Baseline annual labor cost:</strong> ${formatCurrency(annualBaselineLaborCost)}</p>
-      <p><strong>Projected annual labor cost after reduction:</strong> ${formatCurrency(projectedAnnualLaborCost)}</p>
       <p><strong>Estimated annual labor savings:</strong> ${formatCurrency(annualCostSaved)}</p>
     `;
   });
