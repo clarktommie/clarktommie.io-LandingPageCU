@@ -173,7 +173,7 @@ function setupDemoForm() {
   scheduleDemoForm.addEventListener("submit", (event) => {
     event.preventDefault();
     demoFormStatus.textContent =
-      "Request captured locally. Use the link below to open RiskInMind in a new tab.";
+      "Request captured locally. Use the demo CTA to open the scheduling calendar in a new tab.";
   });
 }
 
