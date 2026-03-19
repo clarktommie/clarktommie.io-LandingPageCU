@@ -9,9 +9,6 @@ const hourlyCostInput = document.getElementById("hourlyCost");
 const reductionPercentInput = document.getElementById("reductionPercent");
 const calculatorResults = document.getElementById("calculatorResults");
 
-const scheduleDemoForm = document.getElementById("scheduleDemoForm");
-const demoFormStatus = document.getElementById("demoFormStatus");
-
 let carouselItems = [];
 let carouselIndex = 0;
 let rotationTimer = null;
@@ -167,17 +164,6 @@ function setupCalculator() {
   });
 }
 
-function setupDemoForm() {
-  if (!scheduleDemoForm || !demoFormStatus) return;
-
-  scheduleDemoForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    demoFormStatus.textContent =
-      "Request captured locally. Use the demo CTA to open the scheduling calendar in a new tab.";
-  });
-}
-
 setupCalculator();
-setupDemoForm();
 applyMessagingVariant();
 loadTestimonials();
