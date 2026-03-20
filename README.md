@@ -1,6 +1,6 @@
 # Credit Union Landing Page
 
-Static landing pages for credit union outreach, including a dedicated `/credit-unions` path.
+Static landing pages for credit union outreach, including a credit-union-focused landing page.
 
 ## Run Locally
 
