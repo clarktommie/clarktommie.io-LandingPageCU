@@ -6,7 +6,7 @@ Static landing pages for credit union outreach, including a dedicated `/credit-u
 
 1. Open a terminal and go to the project folder:
 ```bash
-cd "/home/tclark/Data Science/RIskInMind/LandingPage"
+cd "project-folder"
 ```
 
 2. Start a local web server:
@@ -23,7 +23,7 @@ http://localhost:8000/credit-unions/
 ## Implemented Sections
 
 - Hero with A/B-tested messaging (`#heroHeadline`) and CTA copy (`#ctaButton`)
-- HubSpot scheduling CTA (`https://meetings-na2.hubspot.com/raj-kunwar`)
+- HubSpot scheduling CTA (HubSpot scheduling link provided by RiskInMind)
 - Measured Credit Union Impact section with CECL-focused copy
 - CECL Payoff Calculator with default inputs:
   - Monthly prep hours: `30`
