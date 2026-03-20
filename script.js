@@ -72,7 +72,7 @@ function renderCarouselItem() {
 
   if (!carouselItems.length) {
     testimonialContainer.innerHTML =
-      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit union teams and welcome additional feedback.</p></article>';
+      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit unions undergoing CECL-focused NCUA exams and will publish anonymized benchmarks on hours saved, exam findings, and examiner feedback.</p></article>';
     testimonialStatus.textContent =
       "In progress: more peer outcomes will be added as credit union partners approve publication.";
     return;
@@ -137,7 +137,7 @@ async function loadTestimonials() {
     if (!testimonialContainer || !testimonialStatus) return;
 
     testimonialContainer.innerHTML =
-      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit union teams and welcome additional feedback.</p></article>';
+      '<article class="testimonial-card"><p class="testimonial-quote">Peer outcome snapshots are in progress. We are collaborating with credit unions undergoing CECL-focused NCUA exams and will publish anonymized benchmarks on hours saved, exam findings, and examiner feedback.</p></article>';
     testimonialStatus.textContent =
       "In progress: peer outcomes will appear here as they are approved for sharing.";
     console.error(error);
@@ -177,6 +177,8 @@ function setupCalculator() {
       <p><strong>Estimated annual labor savings:</strong> ${formatCurrency(annualCostSaved)}</p>
     `;
   });
+
+  calculatorForm.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
 }
 
 setupCalculator();
