@@ -57,21 +57,11 @@ function setupCtaTracking() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("ctaButton");
+document.getElementById("ctaButton").addEventListener("click", function () {
+  console.log("CLICK FIRED");
 
-  if (btn) {
-    btn.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        gtag("event", "cta_click", {
-          event_category: "engagement",
-          event_label: "Schedule Demo"
-        });
-      } else {
-        console.log("gtag not available");
-      }
-    });
-  }
+  gtag('event', 'cta_click');
+
 });
 
 function formatCurrency(value) {
