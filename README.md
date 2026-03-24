@@ -11,8 +11,8 @@ cd "/home/tclark/Data Science/RIskInMind/LandingPage"
 
 2. Start a local web server:
 ```bash
-python -m http.server
-```
+
+```python -m http.server
 
 3. Open either page in your browser:
 ```text
