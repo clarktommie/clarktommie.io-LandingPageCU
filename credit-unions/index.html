@@ -25,10 +25,10 @@
           rel="noopener noreferrer"
           >Learn more at RiskInMind &rarr;</a
         >
-        <h1 id="heroHeadline">AI-Powered Compliance for Credit Unions</h1>
+        <h1 id="heroHeadline">Be Ready Before Your Next NCUA CECL Examination</h1>
         <p class="hero-credibility">
-          Built for credit union compliance and lending teams preparing for NCUA
-          examinations.
+          Built for credit union finance, risk, and lending teams preparing for
+          CECL-focused NCUA examinations.
         </p>
         <p class="hero-subheadline">
           Strengthen compliance, improve portfolio oversight, and automate CECL
@@ -51,37 +51,74 @@
           <div class="stats-grid">
             <article class="stat-card">
               <p class="stat-number">98.5%</p>
-              <p class="stat-label">compliance accuracy verified by NCUA auditors</p>
+              <p class="stat-label">
+                CECL and ACL documentation accuracy during internal mock NCUA
+                reviews and client audits.
+              </p>
             </article>
             <article class="stat-card">
               <p class="stat-number">15%</p>
               <p class="stat-label">
-                faster early-warning detection on loan portfolio risks
+                Faster early-warning detection on loan portfolio risks with
+                continuous CECL monitoring.
               </p>
             </article>
             <article class="stat-card">
               <p class="stat-number">40%</p>
               <p class="stat-label">
-                automated CECL workflows reduced manual data prep
+                Automated CECL workflows reduce manual data prep and spreadsheet
+                work for examinations.
               </p>
             </article>
           </div>
+          <p class="section-kicker">
+            Metrics are based on aggregated client benchmarks, NCUA CECL
+            expectations, and CECL implementation best practices.
+          </p>
         </div>
       </section>
 
       <section class="calculator section" id="cecl-payoff-calculator">
         <div class="container calculator-content">
           <h2>CECL Payoff Calculator</h2>
-          <p class="section-kicker">Estimate your potential time and cost savings.</p>
-          <p>Enter your baseline metrics.</p>
+          <p class="section-kicker">
+            Estimate your potential time and cost savings before your next NCUA
+            exam.
+          </p>
+          <p>
+            Use the pre-filled assumptions for a typical credit union or adjust
+            the fields to match your workload.
+          </p>
           <form id="ceclCalculatorForm" class="calculator-form">
             <label>
               Manual CECL prep hours per month
-              <input id="monthlyHours" type="number" min="0" step="0.1" required />
+              <input
+                id="monthlyHours"
+                type="number"
+                min="0"
+                step="0.1"
+                value="30"
+                required
+              />
+              <small>
+                Includes time spent preparing CECL/ACL documentation, pulling
+                data for the NCUA, and validating CECL models.
+              </small>
             </label>
             <label>
               Analyst blended hourly cost (USD)
-              <input id="hourlyCost" type="number" min="0" step="0.01" required />
+              <input
+                id="hourlyCost"
+                type="number"
+                min="0"
+                step="0.01"
+                value="85"
+                required
+              />
+              <small>
+                Fully loaded hourly rate for finance, risk, and accounting
+                staff supporting CECL.
+              </small>
             </label>
             <label>
               Reduction in manual prep (%)
@@ -91,18 +128,49 @@
                 min="0"
                 max="100"
                 step="0.1"
+                value="40"
                 required
               />
+              <small>
+                Typical clients see around a 40% reduction in CECL prep hours
+                from automation and standardized workflows.
+              </small>
             </label>
             <button type="submit" class="btn-form-action">Calculate Payoff</button>
           </form>
           <div id="calculatorResults" class="calculator-results" aria-live="polite"></div>
+          <p>
+            Assumptions are based on CECL examination procedures and industry
+            workload estimates. Actual results vary by credit union size,
+            portfolio complexity, and staffing model.
+          </p>
         </div>
       </section>
 
       <section class="testimonials section" id="peer-results">
         <div class="container">
           <h2>Credit Union Peer Results (In Progress)</h2>
+          <p>
+            Peer outcome snapshots are in progress. We are collaborating with
+            credit unions undergoing CECL-focused NCUA exams and will publish
+            anonymized benchmarks on hours saved, exam findings, and examiner
+            feedback.
+          </p>
+          <ul>
+            <li>Average reduction in CECL prep hours per exam cycle.</li>
+            <li>
+              Change in number of CECL-related examiner findings and document
+              requests.
+            </li>
+            <li>
+              Trends in allowance for credit losses (ACL) stability across
+              economic scenarios.
+            </li>
+          </ul>
+          <p>
+            Want to be part of the benchmark cohort?
+            <a href="#schedule-demo">Join our CECL peer program</a>.
+          </p>
           <div class="carousel-shell">
             <div id="testimonialContainer" class="testimonial-carousel" aria-live="polite"></div>
           </div>
