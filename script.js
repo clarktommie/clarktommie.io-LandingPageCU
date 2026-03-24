@@ -55,6 +55,13 @@ function setupCtaTracking() {
   ctaButton.addEventListener("click", () => {
     console.log("CTA Clicked - Variant:", localStorage.getItem("ab_variant"));
   });
+
+  ctaButton.addEventListener("click", function () {
+    gtag("event", "cta_click", {
+      event_category: "engagement",
+      event_label: "Schedule Demo"
+    });
+  });
 }
 
 function formatCurrency(value) {
