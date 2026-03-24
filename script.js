@@ -55,14 +55,24 @@ function setupCtaTracking() {
   ctaButton.addEventListener("click", () => {
     console.log("CTA Clicked - Variant:", localStorage.getItem("ab_variant"));
   });
-
-  ctaButton.addEventListener("click", function () {
-    gtag("event", "cta_click", {
-      event_category: "engagement",
-      event_label: "Schedule Demo"
-    });
-  });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("ctaButton");
+
+  if (btn) {
+    btn.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "cta_click", {
+          event_category: "engagement",
+          event_label: "Schedule Demo"
+        });
+      } else {
+        console.log("gtag not available");
+      }
+    });
+  }
+});
 
 function formatCurrency(value) {
   return new Intl.NumberFormat("en-US", {
